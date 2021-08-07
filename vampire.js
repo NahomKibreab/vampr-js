@@ -67,33 +67,13 @@ class Vampire {
         if (this.offspring.includes(vampire)) {
           return this;
         }
-        console.log("Inner==========");
-        let currentVampire = this;
-        while (currentVampire) {
-          if (!currentVampire.creator) {
-            return currentVampire;
-          }
-          currentVampire = currentVampire.creator;
-        }
-        return currentVampire.creator;
-        console.log("Inner++++++++++");
+
         return this.creator;
       }
 
       if (this.creator === vampire) {
         return this.creator;
       }
-      console.log("==========");
-      let currentVampire = this;
-      while (currentVampire) {
-        if (!currentVampire.creator) {
-          return currentVampire;
-        }
-        currentVampire = currentVampire.creator;
-      }
-      return currentVampire.creator;
-
-      console.log("++++++++++");
 
       return vampire.creator;
     }
