@@ -71,7 +71,25 @@ class Vampire {
   }
 
   // Returns the total number of vampires that exist
-  get totalDescendents() {}
+  get totalDescendents() {
+    /**
+     * DFS Rules
+     * 1. Start with any node
+     * 2. Check it's child and go every child
+     * 3. if it's child have another child keep going depth until no child found
+     * 4. then return one step and check if there's child do step 3
+     */
+    let counter = 0;
+    if (this.offspring.length > 0) {
+      for (const child of this.offspring) {
+        counter++;
+        if (child.offspring.length > 0) {
+          counter += child.totalDescendents;
+        }
+      }
+    }
+    return counter;
+  }
 
   // Returns an array of all the vampires that were converted after 1980
   get allMillennialVampires() {}
